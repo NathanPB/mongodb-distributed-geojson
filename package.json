@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "prerelease": "yarn build",
+    "release": "cd dist && npm publish --access public"
   },
   "keywords": [],
   "author": "Nathan P. Bombana<nathan.pbombana@gmail.com>(https://nathanpb.dev)",
