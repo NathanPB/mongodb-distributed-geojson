@@ -26,7 +26,13 @@
   },
   "dependencies": {
     "@nathanpb/kext": "^1.6.1",
+    "@types/geobuf": "^3.0.1",
+    "@types/pbf": "^3.0.2",
+    "@types/shpjs": "^3.4.1",
+    "geobuf": "^3.0.2",
     "lru-cache": "^7.4.4",
-    "object-sizeof": "^1.6.3"
+    "object-sizeof": "^1.6.3",
+    "pbf": "^3.2.1",
+    "shpjs": "^4.0.2"
   }
 }

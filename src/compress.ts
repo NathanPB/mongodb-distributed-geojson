@@ -9,10 +9,11 @@
  *
  */
 
-import {deflateSync, inflateSync} from 'zlib'
 import {RemoteDocument} from "./remote";
 import {isFeature} from "./typings";
-import {Feature} from "geojson";
+import {Feature, Geometry} from "geojson";
+import {decode, encode} from 'geobuf';
+import Pbf from "pbf";
 
 // Typescript (or my brain) stopped working in this module, lots of 'any' ahead
 
@@ -21,9 +22,10 @@ export type CompressedDocument = RemoteDocument extends Feature
   : RemoteDocument
 
 export function compressDocument(data: RemoteDocument) : CompressedDocument {
-  return isFeature(data)
-    ? { ...data, geometry: deflateSync(JSON.stringify(data.geometry)).toString('hex') } as any
-    : data
+  return isFeature(data) ? {
+    ...data,
+    geometry: Buffer.from(encode(data.geometry, new Pbf())).toString('hex') as any
+  } : data
 }
 
 export function decompressDocument(data: CompressedDocument): RemoteDocument {
@@ -32,10 +34,10 @@ export function decompressDocument(data: CompressedDocument): RemoteDocument {
   const geometryBlob: string = data.geometry as any
   return {
     ...data,
-    geometry: JSON.parse(
-      inflateSync(
+    geometry: decode(
+      new Pbf(
         Buffer.alloc(geometryBlob.length, geometryBlob, 'hex')
-      ).toString('utf8')
-    )
+      )
+    ) as Geometry,
   }
 }
