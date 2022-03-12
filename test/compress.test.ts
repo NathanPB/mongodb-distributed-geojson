@@ -10,8 +10,13 @@
  */
 
 import {RemoteDocument} from "../src/remote";
-import {Feature, FeatureCollection} from "geojson";
+import {Feature, FeatureCollection, Point} from "geojson";
 import {compressDocument, CompressedDocument, decompressDocument} from "../src/compress";
+import {encode} from "geobuf";
+import Pfb from 'pbf'
+
+const geometry: Point = { type: 'Point', coordinates: [0, 0] }
+const geometryBlob = encode(geometry, new Pfb())
 
 describe('#compressDocument', () => {
   it('Should not compress if is feature collection', () => {
@@ -31,13 +36,10 @@ describe('#compressDocument', () => {
       _hash: '',
       type: 'Feature',
       properties: {},
-      geometry: { type: 'Point', coordinates: [0, 0] }
+      geometry,
     }
 
-    expect(compressDocument(input)).toEqual({
-      ...input,
-      geometry: '1800320608001a020000'
-    })
+    expect(compressDocument(input)).toEqual({ ...input, geometry: geometryBlob })
   })
 });
 
@@ -59,12 +61,9 @@ describe('#decompressDocument', () => {
       _hash: '',
       type: 'Feature',
       properties: {},
-      geometry: '1800320608001a020000' as any // fuck this fuck im out
+      geometry: { buffer: geometryBlob } as any
     }
 
-    expect(decompressDocument(input)).toEqual({
-      ...input,
-      geometry: { type: 'Point', coordinates: [0, 0] }
-    })
+    expect(decompressDocument(input)).toEqual({ ...input, geometry })
   })
 });

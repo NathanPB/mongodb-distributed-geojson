@@ -18,26 +18,21 @@ import Pbf from "pbf";
 // Typescript (or my brain) stopped working in this module, lots of 'any' ahead
 
 export type CompressedDocument = RemoteDocument extends Feature
-  ? RemoteDocument & { geometry: string }
+  ? RemoteDocument & { geometry: Uint8Array }
   : RemoteDocument
 
 export function compressDocument(data: RemoteDocument) : CompressedDocument {
-  return isFeature(data) ? {
-    ...data,
-    geometry: Buffer.from(encode(data.geometry, new Pbf())).toString('hex') as any
-  } : data
+  return isFeature(data)
+    ? { ...data, geometry: encode(data.geometry, new Pbf()) as any }
+    : data
 }
 
 export function decompressDocument(data: CompressedDocument): RemoteDocument {
   if (!isFeature(data)) return data
 
-  const geometryBlob: string = data.geometry as any
+  const geometryBlob: { buffer: Buffer } = data.geometry as any
   return {
     ...data,
-    geometry: decode(
-      new Pbf(
-        Buffer.alloc(geometryBlob.length, geometryBlob, 'hex')
-      )
-    ) as Geometry,
+    geometry: decode(new Pbf(geometryBlob.buffer)) as Geometry,
   }
 }
