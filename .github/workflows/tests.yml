@@ -1,0 +1,29 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        nodejs: [14]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # https://github.com/actions/setup-node
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: ${{ matrix.nodejs }}
+
+    - run: yarn
+    - run: yarn add -D esbuild
+    - run: yarn test
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        flag-name: Node.js ${{ matrix.node }}
