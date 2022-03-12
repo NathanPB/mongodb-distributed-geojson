@@ -36,7 +36,7 @@ describe('#compressDocument', () => {
 
     expect(compressDocument(input)).toEqual({
       ...input,
-      geometry: '789cab562aa92c4855b2520ac8cfcc2b51d2514acecf2f4ac9cc4b2c492d56b28a36d03188ad0500e2050c10'
+      geometry: '1800320608001a020000'
     })
   })
 });
@@ -59,7 +59,7 @@ describe('#decompressDocument', () => {
       _hash: '',
       type: 'Feature',
       properties: {},
-      geometry: '789cab562aa92c4855b2520ac8cfcc2b51d2514acecf2f4ac9cc4b2c492d56b28a36d03188ad0500e2050c10' as any // fuck this fuck im out
+      geometry: '1800320608001a020000' as any // fuck this fuck im out
     }
 
     expect(decompressDocument(input)).toEqual({
