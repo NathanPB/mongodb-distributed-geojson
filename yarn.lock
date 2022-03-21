@@ -2106,9 +2106,9 @@ lru-cache@^6.0.0:
     yallist "^4.0.0"
 
 lru-cache@^7.4.4:
-  version "7.5.0"
-  resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-7.5.0.tgz#5e14318d64e6f180a5cf3b9b955b2e89376c0efe"
-  integrity sha512-8neUvdgNtubJ+VNNqrqOLjUoIlN+NRPFtv1Vne2rQ4uPCxhp0W4TlqntzTLnVVezGXcSSdXTrKCTYooEQA7X6g==
+  version "7.7.1"
+  resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-7.7.1.tgz#03d2846b1ad2dcc7931a9340b8711d9798fcb0c6"
+  integrity sha512-cRffBiTW8s73eH4aTXqBcTLU0xQnwGV3/imttRHGWCrbergmnK4D6JXQd8qin5z43HnDwRI+o7mVW0LEB+tpAw==
 
 make-dir@^3.0.0:
   version "3.1.0"
