@@ -26,7 +26,7 @@ export type RemoteDocument<T extends Feature | FeatureCollection = Feature | Fea
 
 export type LocalDocument<T extends Feature | FeatureCollection = Feature | FeatureCollection> = T extends Feature
   ? RemoteDocumentReference & T
-  : RemoteDocumentReference & Omit<T, 'features'> & { features: LocalDocument }
+  : RemoteDocumentReference & Omit<T, 'features'> & { features: LocalDocument[] }
 
 function newReference(data: Feature | FeatureCollection, parent?: string): RemoteDocumentReference {
   const _id = randomUUID() as any
