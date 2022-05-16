@@ -509,9 +509,9 @@
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
 "@nathanpb/kext@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@nathanpb/kext/-/kext-1.6.1.tgz#2731b20adfef71a7aab67fae20ddda0de5dabd29"
-  integrity sha512-c33PnaC3IqN4dsEec0XpVz42Ryt/dSUq+FCZrpeSqn3eQcnqASu54Oj5FlUTVeTJmQSS2RcjF84h0+ylf4AGTg==
+  version "1.6.2"
+  resolved "https://registry.npmjs.org/@nathanpb/kext/-/kext-1.6.2.tgz#e57ddb3f3fc348ee8f7fb2af3197b485acb728c6"
+  integrity sha512-cG70nS1R/tgoZmmsV37/IH+Q9hogDEvflXEjsw3Rci2/EZDZar1pWmk9RbK7NjZIYVbCygo7Y2DtJV6fUCkUUw==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
