@@ -2572,9 +2572,9 @@ shebang-regex@^3.0.0:
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
 shpjs@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.npmjs.org/shpjs/-/shpjs-4.0.2.tgz#8367922f7a5c3443f4b433b7380ddccce5a7d2e1"
-  integrity sha512-yiyc7FyOCnVeF6UiJmKMxg5P/x0MQIUnH3m+OhFb2eic39WZo40b7jxh+zkhj309kA2Hh2t5La+kFv8Im94C3g==
+  version "4.0.3"
+  resolved "https://registry.npmjs.org/shpjs/-/shpjs-4.0.3.tgz#dd55e52cf590ab6bbd9cd55fe8b74d6e123d48a1"
+  integrity sha512-Yd07okO/EbyX7duoGYIMc7qfg80G13xGAivE8+83h89VML4n9rZ9xftaLrtBvKRkSZrXPSV0YaQYP+ezfWFWWA==
   dependencies:
     jszip "^3.5.0"
     lie "^3.0.1"
